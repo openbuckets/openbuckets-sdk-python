@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "openbuckets"
-version = "1.0.1"
+version = "1.0.2"
 description = "OpenBuckets API"
 authors = ["Openbuckets.io Team <support@openbuckets.io>"]
 license = "NoLicense"
