@@ -16,20 +16,6 @@ pip install openbuckets
 ```
 (you may need to run `pip` with root permission: `sudo pip install openbuckets`)
 
-Then import the package:
-```python
-import openbuckets
-```
-
-Then import the package:
-```python
-import openbuckets
-```
-
-### Tests
-
-Execute `pytest` to run the tests.
-
 ## Getting Started
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
@@ -108,6 +94,9 @@ Authentication schemes defined for the API:
 
 - **Type**: Bearer authentication (auth-scheme)
 
+### Tests
+
+Execute `pytest` to run the tests.
 
 ## Author
 
