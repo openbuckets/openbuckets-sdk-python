@@ -12,23 +12,14 @@ Python 3.7+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install openbuckets==1.0.1
+pip install openbuckets
 ```
-(you may need to run `pip` with root permission: `sudo pip install openbuckets==1.0.1`)
+(you may need to run `pip` with root permission: `sudo pip install openbuckets`)
 
 Then import the package:
 ```python
 import openbuckets
 ```
-
-### Setuptools
-
-Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
-
-```sh
-python setup.py install --user
-```
-(or `sudo python setup.py install` to install the package for all users)
 
 Then import the package:
 ```python
