@@ -1,11 +1,13 @@
 # BucketSearchResults
 
+The search results for buckets.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **int** | Total number of matching buckets | [optional] 
-**results** | [**List[Bucket]**](Bucket.md) |  | [optional] 
+**buckets** | [**List[BucketSearchResultsBucketsInner]**](BucketSearchResultsBucketsInner.md) | An array of buckets. | [optional] 
+**meta** | [**BucketSearchResultsMeta**](BucketSearchResultsMeta.md) |  | [optional] 
+**query** | [**BucketSearchResultsQuery**](BucketSearchResultsQuery.md) |  | [optional] 
 
 ## Example
 

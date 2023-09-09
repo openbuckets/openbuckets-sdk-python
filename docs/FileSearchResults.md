@@ -1,11 +1,13 @@
 # FileSearchResults
 
+The search results for files.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **int** | Total number of matching files | [optional] 
-**results** | [**List[File]**](File.md) |  | [optional] 
+**files** | [**List[FileSearchResultsFilesInner]**](FileSearchResultsFilesInner.md) | An array of files. | [optional] 
+**meta** | [**FileSearchResultsMeta**](FileSearchResultsMeta.md) |  | [optional] 
+**query** | [**FileSearchResultsQuery**](FileSearchResultsQuery.md) |  | [optional] 
 
 ## Example
 

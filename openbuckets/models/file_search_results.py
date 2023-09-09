@@ -20,16 +20,19 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, Field, StrictInt, conlist
-from openbuckets.models.file import File
+from pydantic import BaseModel, Field, conlist
+from openbuckets.models.file_search_results_files_inner import FileSearchResultsFilesInner
+from openbuckets.models.file_search_results_meta import FileSearchResultsMeta
+from openbuckets.models.file_search_results_query import FileSearchResultsQuery
 
 class FileSearchResults(BaseModel):
     """
-    FileSearchResults
+    The search results for files.
     """
-    total: Optional[StrictInt] = Field(None, description="Total number of matching files")
-    results: Optional[conlist(File)] = None
-    __properties = ["total", "results"]
+    files: Optional[conlist(FileSearchResultsFilesInner)] = Field(None, description="An array of files.")
+    meta: Optional[FileSearchResultsMeta] = None
+    query: Optional[FileSearchResultsQuery] = None
+    __properties = ["files", "meta", "query"]
 
     class Config:
         """Pydantic configuration"""
@@ -55,13 +58,19 @@ class FileSearchResults(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in files (list)
         _items = []
-        if self.results:
-            for _item in self.results:
+        if self.files:
+            for _item in self.files:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['results'] = _items
+            _dict['files'] = _items
+        # override the default output from pydantic by calling `to_dict()` of meta
+        if self.meta:
+            _dict['meta'] = self.meta.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of query
+        if self.query:
+            _dict['query'] = self.query.to_dict()
         return _dict
 
     @classmethod
@@ -74,8 +83,9 @@ class FileSearchResults(BaseModel):
             return FileSearchResults.parse_obj(obj)
 
         _obj = FileSearchResults.parse_obj({
-            "total": obj.get("total"),
-            "results": [File.from_dict(_item) for _item in obj.get("results")] if obj.get("results") is not None else None
+            "files": [FileSearchResultsFilesInner.from_dict(_item) for _item in obj.get("files")] if obj.get("files") is not None else None,
+            "meta": FileSearchResultsMeta.from_dict(obj.get("meta")) if obj.get("meta") is not None else None,
+            "query": FileSearchResultsQuery.from_dict(obj.get("query")) if obj.get("query") is not None else None
         })
         return _obj
 

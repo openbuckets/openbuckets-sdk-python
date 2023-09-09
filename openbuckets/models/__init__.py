@@ -17,5 +17,11 @@
 # import models into model package
 from openbuckets.models.bucket import Bucket
 from openbuckets.models.bucket_search_results import BucketSearchResults
+from openbuckets.models.bucket_search_results_buckets_inner import BucketSearchResultsBucketsInner
+from openbuckets.models.bucket_search_results_meta import BucketSearchResultsMeta
+from openbuckets.models.bucket_search_results_query import BucketSearchResultsQuery
 from openbuckets.models.file import File
 from openbuckets.models.file_search_results import FileSearchResults
+from openbuckets.models.file_search_results_files_inner import FileSearchResultsFilesInner
+from openbuckets.models.file_search_results_meta import FileSearchResultsMeta
+from openbuckets.models.file_search_results_query import FileSearchResultsQuery

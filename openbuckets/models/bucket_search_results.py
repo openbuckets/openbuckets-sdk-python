@@ -20,16 +20,19 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, Field, StrictInt, conlist
-from openbuckets.models.bucket import Bucket
+from pydantic import BaseModel, Field, conlist
+from openbuckets.models.bucket_search_results_buckets_inner import BucketSearchResultsBucketsInner
+from openbuckets.models.bucket_search_results_meta import BucketSearchResultsMeta
+from openbuckets.models.bucket_search_results_query import BucketSearchResultsQuery
 
 class BucketSearchResults(BaseModel):
     """
-    BucketSearchResults
+    The search results for buckets.
     """
-    total: Optional[StrictInt] = Field(None, description="Total number of matching buckets")
-    results: Optional[conlist(Bucket)] = None
-    __properties = ["total", "results"]
+    buckets: Optional[conlist(BucketSearchResultsBucketsInner)] = Field(None, description="An array of buckets.")
+    meta: Optional[BucketSearchResultsMeta] = None
+    query: Optional[BucketSearchResultsQuery] = None
+    __properties = ["buckets", "meta", "query"]
 
     class Config:
         """Pydantic configuration"""
@@ -55,13 +58,19 @@ class BucketSearchResults(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in buckets (list)
         _items = []
-        if self.results:
-            for _item in self.results:
+        if self.buckets:
+            for _item in self.buckets:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['results'] = _items
+            _dict['buckets'] = _items
+        # override the default output from pydantic by calling `to_dict()` of meta
+        if self.meta:
+            _dict['meta'] = self.meta.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of query
+        if self.query:
+            _dict['query'] = self.query.to_dict()
         return _dict
 
     @classmethod
@@ -74,8 +83,9 @@ class BucketSearchResults(BaseModel):
             return BucketSearchResults.parse_obj(obj)
 
         _obj = BucketSearchResults.parse_obj({
-            "total": obj.get("total"),
-            "results": [Bucket.from_dict(_item) for _item in obj.get("results")] if obj.get("results") is not None else None
+            "buckets": [BucketSearchResultsBucketsInner.from_dict(_item) for _item in obj.get("buckets")] if obj.get("buckets") is not None else None,
+            "meta": BucketSearchResultsMeta.from_dict(obj.get("meta")) if obj.get("meta") is not None else None,
+            "query": BucketSearchResultsQuery.from_dict(obj.get("query")) if obj.get("query") is not None else None
         })
         return _obj
 

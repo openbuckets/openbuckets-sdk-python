@@ -40,7 +40,7 @@ configuration = openbuckets.Configuration(
 
 # Configure Bearer authorization (auth-scheme): bearerAuth
 configuration = openbuckets.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = os.environ["OPENBUCKETS_API_KEY"]
 )
 
 
@@ -80,8 +80,14 @@ Class | Method | HTTP request | Description
 
  - [Bucket](docs/Bucket.md)
  - [BucketSearchResults](docs/BucketSearchResults.md)
+ - [BucketSearchResultsBucketsInner](docs/BucketSearchResultsBucketsInner.md)
+ - [BucketSearchResultsMeta](docs/BucketSearchResultsMeta.md)
+ - [BucketSearchResultsQuery](docs/BucketSearchResultsQuery.md)
  - [File](docs/File.md)
  - [FileSearchResults](docs/FileSearchResults.md)
+ - [FileSearchResultsFilesInner](docs/FileSearchResultsFilesInner.md)
+ - [FileSearchResultsMeta](docs/FileSearchResultsMeta.md)
+ - [FileSearchResultsQuery](docs/FileSearchResultsQuery.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -97,6 +103,7 @@ Authentication schemes defined for the API:
 ### Tests
 
 Execute `pytest` to run the tests.
+
 
 ## Author
 
