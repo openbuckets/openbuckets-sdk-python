@@ -12,9 +12,9 @@ Python 3.7+
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://https://github.com/openbuckets/sdk-python.git
+pip install openbuckets==1.0.1
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://https://github.com/openbuckets/sdk-python.git`)
+(you may need to run `pip` with root permission: `sudo pip install openbuckets==1.0.1`)
 
 Then import the package:
 ```python

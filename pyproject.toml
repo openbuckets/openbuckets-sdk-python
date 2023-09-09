@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "openbuckets"
-version = "1.0.0"
+version = "1.0.1"
 description = "OpenBuckets API"
 authors = ["Openbuckets.io Team <support@openbuckets.io>"]
 license = "NoLicense"
 readme = "README.md"
 repository = "https://github.com/openbuckets/sdk-python"
-keywords = ["OpenAPI", "OpenAPI-Generator", "OpenBuckets API"]
+keywords = ["openbuckets", "misconfigured buckets", "OpenBuckets API","bounty hunters","cybersecurity"]
 include = ["openbuckets/py.typed"]
 
 [tool.poetry.dependencies]

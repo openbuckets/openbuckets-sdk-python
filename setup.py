@@ -22,7 +22,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "openbuckets"
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
     "urllib3 >= 1.25.3, < 2.1.0",
@@ -38,13 +38,19 @@ setup(
     author="Openbuckets.io Team",
     author_email="support@openbuckets.io",
     url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "OpenBuckets API"],
+    keywords=["openbuckets", "misconfigured buckets", "OpenBuckets API","bounty hunters","cybersecurity"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description_content_type='text/markdown',
     long_description="""\
-    The OpenBuckets web-based tool is a powerful utility that allows users to quickly locate open buckets in cloud storage systems through a simple query. In addition, it provides a convenient way to search for various file types across these open buckets, making it an essential tool for security professionals, researchers, and anyone interested in discovering exposed data. This Postman collection aims to showcase the capabilities of OpenBuckets by providing a set of API requests that demonstrate how to leverage its features. By following this collection, you&#39;ll learn how to utilize OpenBuckets to identify open buckets and search for specific file types within them.
+    The OpenBuckets web-based tool is a powerful utility that allows users to quickly 
+    locate open buckets in cloud storage systems through a simple query. 
+    In addition, it provides a convenient way to search for various file 
+    types across these open buckets, making it an essential tool for security professionals, 
+    researchers, and anyone interested in discovering exposed data. 
+    This package aims to showcase the capabilities of OpenBuckets by providing a set of API requests that demonstrate how to leverage its features. 
+    By using this package, you&#39;ll learn how to utilize OpenBuckets to identify open buckets and search for specific file types within them.
     """,  # noqa: E501
     package_data={"openbuckets": ["py.typed"]},
 )
